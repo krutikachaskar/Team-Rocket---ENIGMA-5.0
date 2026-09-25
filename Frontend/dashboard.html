@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Login Successful</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login Successful</h1>
+        <div class="section">
+            <p>The frontend successfully communicated with the backend and database!</p>
+            <p><strong>Name:</strong> <span id="display-name"></span></p>
+            <p><strong>Roll No:</strong> <span id="display-roll"></span></p>
+            <button id="logout-btn">Back to Login</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('display-name').textContent = localStorage.getItem('demo_user_name') || 'Unknown';
+        document.getElementById('display-roll').textContent = localStorage.getItem('demo_user_roll') || 'Unknown';
+        
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('demo_user_name');
+            localStorage.removeItem('demo_user_roll');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
